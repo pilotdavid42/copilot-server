@@ -16,6 +16,9 @@ const { initDatabase, ensureMasterAdmin } = require('./database');
 // Create Express app
 const app = express();
 
+// Trust proxy (required for Railway and other cloud hosts)
+app.set('trust proxy', 1);
+
 // ============================================================
 // MIDDLEWARE
 // ============================================================
