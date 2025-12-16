@@ -10,8 +10,9 @@ const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');
 
-// Database file path
-const dbPath = path.join(__dirname, 'database.sqlite');
+// Database file path - use RAILWAY_VOLUME_MOUNT_PATH if available for persistence
+const dataDir = process.env.RAILWAY_VOLUME_MOUNT_PATH || __dirname;
+const dbPath = path.join(dataDir, 'database.sqlite');
 
 // Global database instance
 let db = null;
